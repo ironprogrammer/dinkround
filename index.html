@@ -705,9 +705,9 @@
 					if ( isCompleted ) cellClass = 'pbr-completed-round';
 
 					if ( courtData ) {
-						html += `<td class="${ cellClass }">${ courtData.team1.join(
+						html += `<td class="${ cellClass }">${ courtData.team1.map( n => `<strong>${ n }</strong>` ).join(
 							' '
-						) }<br><em>vs</em><br>${ courtData.team2.join( ' ' ) }</td>`;
+						) }<br><em>vs</em><br>${ courtData.team2.map( n => `<strong>${ n }</strong>` ).join( ' ' ) }</td>`;
 					} else {
 						html += `<td class="${ cellClass }">-</td>`;
 					}
@@ -722,7 +722,7 @@
 				const roundNum = roundIndex + 1;
 				const isCompleted = pbrCompletedRounds[ roundNum ] || false;
 				const byes =
-					roundData.byes.length > 0 ? roundData.byes.join( ' ' ) : '-';
+					roundData.byes.length > 0 ? roundData.byes.map( n => `<strong>${ n }</strong>` ).join( ' ' ) : '-';
 
 				let cellClass = '';
 				if ( isCompleted ) cellClass = 'pbr-completed-round';
